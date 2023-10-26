@@ -36,7 +36,7 @@ void Text::copy(IManageable* object)
 	length = textToCopy->length;
 }
 
-bool Text::isEqual(IManageable* object)/////////////////////////////////////////////////////////////////////////////////////////
+bool Text::isEqual(IManageable* object)
 {
 	Text* textObject = (Text*)object;
 	if (strncmp(text, textObject->text, textObject->length) == 0)
