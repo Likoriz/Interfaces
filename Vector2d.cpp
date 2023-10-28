@@ -3,7 +3,7 @@
 
 void Vector2d::printShort()
 {
-	cout<<"Short data is:"<<xEnd-xStart<<" "<<yEnd-yStart<<"\n";
+	cout<<"Short data is:"<<xEnd-xStart<<" "<<yEnd-yStart;
 }
 
 Vector2d::Vector2d()
@@ -18,7 +18,7 @@ Vector2d::Vector2d()
 
 void Vector2d::printFull()
 {
-	cout<<"Full data is:{"<<xStart<<";"<<yStart<<"} {"<<xEnd<<";"<<yEnd<<"], value is:"<<len<<"\n";
+	cout<<"Full data is:{"<<xStart<<";"<<yStart<<"} {"<<xEnd<<";"<<yEnd<<"], value is:"<<len;
 }
 
 void Vector2d::copy(ICopyable* object)

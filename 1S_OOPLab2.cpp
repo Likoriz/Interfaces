@@ -1,7 +1,7 @@
 ﻿#include "Text.h"
 #include "Vector2d.h"
 #include "Vector3d.h"
-#define SIZE 10
+#define SIZE 10-1
 
 int main()
 {
@@ -12,8 +12,12 @@ int main()
 	srand(time(NULL));
 
 	IManageable** object = new IManageable*[SIZE];
-	for (int i = 0; i < SIZE; i++)
-		object[i] = new Vector2d();
+	for (int i = 0; i < 3; i++)
+		object[i] = new Text();
+	for(int i=3; i<6; i++)
+		object[i]=new Vector2d();
+	for(int i=6; i<9; i++)
+		object[i]=new Vector3d();
 
 	for (int i = 0; i < SIZE; i++)
 	{
@@ -44,7 +48,7 @@ int main()
 	sort(object, SIZE);
 	for (int i = 0; i < SIZE; i++)
 	{
-		object[i]->printShort();
+		object[i]->printFull();
 		cout << endl;
 	}
 }

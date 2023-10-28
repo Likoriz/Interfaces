@@ -1,7 +1,7 @@
 #include "Vector3d.h"
 void Vector3d::printShort()
 {
-	cout<<"Short data is:"<<xEnd-xStart<<" "<<yEnd-yStart<<" "<<zEnd-zStart<<"\n";
+	cout<<"Short data is:"<<xEnd-xStart<<" "<<yEnd-yStart<<" "<<zEnd-zStart;
 }
 
 Vector3d::Vector3d()
@@ -18,7 +18,7 @@ Vector3d::Vector3d()
 
 void Vector3d::printFull()
 {
-	cout<<"Full data is:{"<<xStart<<";"<<yStart<<";"<<zStart<<"} {"<<xEnd<<";"<<yEnd<<";"<<zEnd<<"}, value is:"<<len<<"\n";
+	cout<<"Full data is:{"<<xStart<<";"<<yStart<<";"<<zStart<<"} {"<<xEnd<<";"<<yEnd<<";"<<zEnd<<"}, value is:"<<len;
 }
 
 void Vector3d::copy(ICopyable* object)

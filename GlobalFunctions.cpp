@@ -77,7 +77,7 @@ void printColumn(IManageable** objects, int size)//IPrintable**
 
 float totalSum(IManageable** objects, int size)//IValue**
 {
-	int sum = 0;
+	float sum = 0;
 
 	for (int i = 0; i < size; i++)
 		sum += objects[i]->value();
@@ -104,7 +104,7 @@ void printPikes(IManageable** objects, int size)
 	objects[0]->printFull();
 	cout << endl;
 
-	for (int i = 1; i < size - 2; i++)
+	for (int i = 1; i < size - 1; i++)
 	{
 		if (objects[i]->value() > objects[i - 1]->value() && objects[i]->value() > objects[i + 1]->value())
 		{
