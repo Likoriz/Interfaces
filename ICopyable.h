@@ -10,7 +10,7 @@ public:
 	Производит копирование передаваемого аргументом объекта
 	в объект, вызывающий метод.
 	*/
-	virtual void copy(IManageable* object) = 0;
+	virtual void copy(ICopyable* object) = 0;
 
 	/*
 	Проверка равенства.

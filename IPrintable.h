@@ -1,7 +1,5 @@
 #pragma once
 
-class IManageable;
-
 class IPrintable
 {
 public:

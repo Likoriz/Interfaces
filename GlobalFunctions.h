@@ -7,44 +7,44 @@
 Сортировка.
 Сортирует массив объектов по значению в порядке возрастания.
 */
-void sort();
+void sort(IManageable** objects, int size);
 
 /*
 Поиск минимального значения.
 Возвращает минимальное значение среди всех объектов массива.
 */
-int min();
+float min(IManageable** objects, int size);
 
 /*
 Поиск максимального значения.
 Возвращает максимальное значение среди всех объектов массива.
 */
-int max();
+float max(IManageable** objects, int size);
 
 /*
 Поиск по значению.
 Возвращает индекс объекта массива с совпадающим значением.
 Если такого нет, возвращает -1.
 */
-int find();
+int find(IManageable** objects, int size, float value);
 
 /*
 Вывод в строчку.
 Выводит краткую информацию об объектах массива в строку.
 */
-void printLine();
+void printLine(IManageable** objects, int size);
 
 /*
 Вывод в столбик.
 Выводит полную информацию об объектах массива в столбик.
 */
-void printColumn();
+void printColumn(IManageable** objects, int size);
 
 /*
 Суммирование.
 Возвращает сумму всех значений объектов массива.
 */
-int totalSum();
+float totalSum(IManageable** objects, int size);
 
 /*
 Подчет в диапазоне.

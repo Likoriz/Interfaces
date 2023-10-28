@@ -12,12 +12,13 @@ Text::Text()
 Text::~Text()
 {
 	delete text;
+	text = nullptr;
 }
 
 void Text::printShort()
 {
 	if (length > 10)
-		cout << text[0] << text[1] << text[2] << "..." << text[length - 3] << text[length - 2] << text[length - 1] << " " << length << endl;
+		cout << text[0] << text[1] << text[2] << "..." << text[length - 3] << text[length - 2] << text[length - 1] << " " << length;
 	else
 		printFull();
 }
@@ -26,10 +27,10 @@ void Text::printFull()
 {
 	for (int i = 0; i < length; i++)
 		cout << text[i];
-	cout << " " << length << endl;
+	cout << " " << length;
 }
 
-void Text::copy(IManageable* object)
+void Text::copy(ICopyable* object)
 {
 	Text* textToCopy = (Text*)object;
 	strncpy(text, textToCopy->text, textToCopy->length);
