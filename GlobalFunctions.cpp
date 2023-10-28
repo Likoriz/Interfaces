@@ -1,5 +1,5 @@
 #include "GlobalFunctions.h"
-//юпцслемрш дкъ цкнаюкэмшу тсмйжхи еые ме мюохяюмш
+
 void sort()
 {
 

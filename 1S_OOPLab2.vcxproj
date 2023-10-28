@@ -134,6 +134,9 @@
     <ClCompile Include="IPrintable.cpp" />
     <ClCompile Include="IValue.cpp" />
     <ClCompile Include="Text.cpp" />
+    <ClCompile Include="Vector2d.cpp" />
+    <ClCompile Include="Vector3d.cpp" />
+    <ClCompile Include="vectorInstruments.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GlobalFunctions.h" />
@@ -142,6 +145,9 @@
     <ClInclude Include="IPrintable.h" />
     <ClInclude Include="IValue.h" />
     <ClInclude Include="Text.h" />
+    <ClInclude Include="Vector2d.h" />
+    <ClInclude Include="Vector3d.h" />
+    <ClInclude Include="vectorsInstruments.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
