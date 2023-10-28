@@ -45,4 +45,8 @@ int main()
 	cout << endl << endl;
 
 	printColumn(object, SIZE);
+
+	cout << endl;
+
+	cout << "SUM: " << totalSum(object, SIZE) << endl;
 }
