@@ -9,7 +9,7 @@ public:
 	Vector3d();
 	void printShort();
 	void printFull();
-	void copy(IManageable* object);
+	void copy(ICopyable* object);
 	bool isEqual(IManageable* object);
 	float value();
 };

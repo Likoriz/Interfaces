@@ -21,7 +21,7 @@ void Vector3d::printFull()
 	cout<<"Full data is:{"<<xStart<<";"<<yStart<<";"<<zStart<<"} {"<<xEnd<<";"<<yEnd<<";"<<zEnd<<"}, value is:"<<len<<"\n";
 }
 
-void Vector3d::copy(IManageable* object)
+void Vector3d::copy(ICopyable* object)
 {
 	Vector3d* tmp_object=(Vector3d*)object;
 	tmp_object->len=len;

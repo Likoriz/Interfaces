@@ -1,5 +1,6 @@
 ﻿#include "Text.h"
-
+#include "Vector2d.h"
+#include "Vector3d.h"
 #define SIZE 10
 
 int main()
@@ -12,7 +13,7 @@ int main()
 
 	IManageable** object = new IManageable*[SIZE];
 	for (int i = 0; i < SIZE; i++)
-		object[i] = new Text();
+		object[i] = new Vector2d();
 
 	//object[5]->copy(object[6]);
 	//cout << object[5]->isEqual(object[6]) << endl;

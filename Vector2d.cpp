@@ -21,7 +21,7 @@ void Vector2d::printFull()
 	cout<<"Full data is:{"<<xStart<<";"<<yStart<<"} {"<<xEnd<<";"<<yEnd<<"], value is:"<<len<<"\n";
 }
 
-void Vector2d::copy(IManageable* object)
+void Vector2d::copy(ICopyable* object)
 {
 	Vector2d* tmp_object=(Vector2d*)object;
 	tmp_object->len=len;
