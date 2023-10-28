@@ -2,6 +2,7 @@
 #include "Vector2d.h"
 #include "Vector3d.h"
 #define SIZE 10-1
+#include "Vector2d.h"
 
 int main()
 {
