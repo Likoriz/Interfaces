@@ -51,13 +51,13 @@ float totalSum(IManageable** objects, int size);
 Возвращает количество объектов в массиве, значения которых находятся
 в диапазоне от А до В.
 */
-int countInRange();
+int countInRange(IManageable** objects, int size, float A, float B);
 
 /*
 Вывод пиков.
 Выводит полную информацию об объектах массива с пиковыми значениями.
 */
-void printPikes();
+void printPikes(IManageable** objects, int size);
 
 /*
 Копирование.

@@ -9,7 +9,6 @@
 
 using namespace std;
 
-
 class IManageable: public IPrintable, public ICopyable, public IValue
 {
 

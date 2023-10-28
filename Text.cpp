@@ -6,7 +6,7 @@ Text::Text()
 	text = new char[100];
 
 	for (int i = 0; i < length; i++)
-		text[i] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"[rand() % 36];
+		text[i] = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"[rand() % 62];
 }
 
 Text::~Text()
