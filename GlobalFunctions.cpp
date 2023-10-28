@@ -85,14 +85,42 @@ float totalSum(IManageable** objects, int size)//IValue**
 	return sum;
 }
 
-int countInRange()
+int countInRange(IManageable** objects, int size, float A, float B)//IValue**
 {
-	return 0;
+	int count = 0;
+
+	for (int i = 0; i < size; i++)
+	{
+		float val = objects[i]->value();
+		if (val > A && val < B)
+			count++;
+	}
+
+	return count;
 }
 
-void printPikes()
+void printPikes(IManageable** objects, int size)
 {
+	objects[0]->printFull();
+	cout << endl;
 
+	for (int i = 1; i < size - 2; i++)
+	{
+		if (objects[i]->value() > objects[i - 1]->value() && objects[i]->value() > objects[i + 1]->value())
+		{
+			objects[i]->printFull();
+			cout << endl;
+		}
+		else
+			if (objects[i]->value() < objects[i - 1]->value() && objects[i]->value() < objects[i + 1]->value())
+			{
+				objects[i]->printFull();
+				cout << endl;
+			}
+	}
+
+	objects[size - 1]->printFull();
+	cout << endl;
 }
 
 void makeCopy()
