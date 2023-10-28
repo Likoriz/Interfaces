@@ -1,43 +1,93 @@
 #include "GlobalFunctions.h"
 //¿–√”Ã≈Õ“€ ƒÀﬂ √ÀŒ¡¿À‹Õ€’ ‘”Õ ÷»… ≈Ÿ≈ Õ≈ Õ¿œ»—¿Õ€
-void sort()
-{
 
+void sort(IManageable** objects, int size)//IValue**
+{
+	for (int i = 0; i < size; i++)
+		for (int j = 0; j < size; j++)
+		{
+			if (objects[i]->value() < objects[j]->value())
+			{
+				IManageable* tmp = objects[i];
+				objects[i] = objects[j];
+				objects[j] = tmp;
+			}
+		}
 }
 
-int min()
+float min(IManageable** objects, int size)//IValue**
 {
+	int min = objects[0]->value();
 
+	for (int i = 1; i < size; i++)
+	{
+		float val = objects[i]->value();
+		if (min > val)
+			min = val;
+	}
+
+	return min;
 }
 
-int max()
+float max(IManageable** objects, int size)//IValue**
 {
+	int max = objects[0]->value();
 
+	for (int i = 1; i < size; i++)
+	{
+		float val = objects[i]->value();
+		if (max < val)
+			max = val;
+	}
+
+	return max;
 }
 
-int find()
+int find(IManageable** objects, int size, float value)//IValue**
 {
+	int index = -1;
 
+	for (int i = 0; i < size; i++)
+	{
+		float val = objects[i]->value();
+		if (value == val)
+			index = i;
+	}
+
+	return index;
 }
 
-void printLine()
+void printLine(IManageable** objects, int size)//IPrintable**
 {
-
+	for (int i = 0; i < size; i++)
+	{
+		objects[i]->printShort();
+		cout << "     ";
+	}
 }
 
-void printColumn()
+void printColumn(IManageable** objects, int size)//IPrintable**
 {
-
+	for (int i = 0; i < size; i++)
+	{
+		objects[i]->printFull();
+		cout << endl;
+	}
 }
 
-int totalSum()
+float totalSum(IManageable** objects, int size)//IValue**
 {
+	int sum = 0;
 
+	for (int i = 0; i < size; i++)
+		sum += objects[i]->value();
+
+	return sum;
 }
 
 int countInRange()
 {
-
+	return 0;
 }
 
 void printPikes()

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "IManageable.h"
+#include "GlobalFunctions.h"
 
 class Text: public IManageable
 {
@@ -38,7 +38,7 @@ public:
 	Производит копирование передаваемой аргументом строки
 	в строку, вызывающую метод.
 	*/
-	void copy(IManageable* object);
+	void copy(ICopyable* object);
 
 	/*
 	Проверка равенства.
