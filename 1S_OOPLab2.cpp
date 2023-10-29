@@ -8,13 +8,13 @@ int main()
 {
 	srand(time(NULL));
 
-	IManageable** object = new IManageable*[SIZE];
+	IManageable** object = new IManageable * [SIZE];
 	for (int i = 0; i < 3; i++)
 		object[i] = new Text();
-	for(int i=3; i<6; i++)
-		object[i]=new Vector2d();
-	for(int i=6; i<9; i++)
-		object[i]=new Vector3d();
+	for (int i = 3; i < 6; i++)
+		object[i] = new Vector2d();
+	for (int i = 6; i < 9; i++)
+		object[i] = new Vector3d();
 
 	IManageable** objectCopied = new IManageable * [SIZE];
 	for (int i = 0; i < 3; i++)
