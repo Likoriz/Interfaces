@@ -24,11 +24,16 @@ void Vector2d::printFull()
 void Vector2d::copy(ICopyable* object)
 {
 	Vector2d* tmp_object=(Vector2d*)object;
-	tmp_object->len=len;
-	tmp_object->xStart=xStart;
-	tmp_object->xEnd=xEnd;
-	tmp_object->yStart=yStart;
-	tmp_object->yEnd=yEnd;
+	len = tmp_object->len;
+	//tmp_object->len=len;
+	xStart = tmp_object->xStart;
+	//tmp_object->xStart=xStart;
+	xEnd = tmp_object->xEnd;
+	//tmp_object->xEnd=xEnd;
+	yStart = tmp_object->yStart;
+	//tmp_object->yStart=yStart;
+	yEnd = tmp_object->yEnd;
+	//tmp_object->yEnd=yEnd;
 }
 
 bool Vector2d::isEqual(IManageable* object)

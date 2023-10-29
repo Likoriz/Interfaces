@@ -6,10 +6,6 @@
 
 int main()
 {
-	/*
-	Все, что находится в main на данный момент является тестом для функций.
-	При разработке своих виртуальных функций можете дописывать сюда что-нибудь.
-	*/
 	srand(time(NULL));
 
 	IManageable** object = new IManageable*[SIZE];
@@ -20,36 +16,88 @@ int main()
 	for(int i=6; i<9; i++)
 		object[i]=new Vector3d();
 
-	for (int i = 0; i < SIZE; i++)
+	IManageable** objectCopied = new IManageable * [SIZE];
+	for (int i = 0; i < 3; i++)
+		objectCopied[i] = new Text();
+	for (int i = 3; i < 6; i++)
+		objectCopied[i] = new Vector2d();
+	for (int i = 6; i < 9; i++)
+		objectCopied[i] = new Vector3d();
+
+	int action;
+	bool isRunning = true;
+	float val, A, B;
+
+	do
 	{
-		object[i]->printShort();
-		cout << endl;
-	}
-	cout << endl;
+		system("cls");
+		printColumn(object, SIZE);
 
-	cout << "MIN: " << min(object, SIZE) << endl;
-	cout << "MAX: " << max(object, SIZE) << endl;
-	cout << "FIND INDEX: " << find(object, SIZE, 100) << endl;
+		do
+		{
+			cout << endl << "Choose action (0 - exit, 1 - sort, 2 - min, 3 - max, 4 - find, 5 - printLine, 6 - printColumn, 7 - totalSum, 8 - countInRange, 9 - printPikes, 10 - makeCopy, 11 - join, 12 - append, 13 - printUnique): ";
+			cin >> action;
+			cout << endl;
+		} while (action < 0 && action > 14);
 
-	printLine(object, SIZE);
-	cout << endl << endl;
+		switch (action)
+		{
+		case 0://EXIT
+			isRunning = false;
+			break;
+		case 1://SORT
+			sort(object, SIZE);
+			break;
+		case 2://MIN
+			cout << "MIN: " << min(object, SIZE) << endl;
+			break;
+		case 3://MAX
+			cout << "MAX: " << max(object, SIZE) << endl;
+			break;
+		case 4://FIND INDEX
+			cout << "Enter value: ";
+			cin >> val;
+			cout << "FOUND INDEX: " << find(object, SIZE, val) << endl;
+			break;
+		case 5://PRINT LINE
+			printLine(object, SIZE);
+			cout << endl << endl;
+			break;
+		case 6://PRINT COLUMN
+			printColumn(object, SIZE);
+			cout << endl << endl;
+			break;
+		case 7://TOTAL SUM
+			cout << "SUM: " << totalSum(object, SIZE) << endl << endl;
+			break;
+		case 8://COUNT IN RANGE
+			cout << "Enter A (begin) and B (end): ";
+			cin >> A >> B;
+			cout << "RANGE COUNT: " << countInRange(object, SIZE, A, B) << endl << endl;
+			break;
+		case 9://PRINT PIKES
+			cout << "PIKES: " << endl;
+			printPikes(object, SIZE);
+			cout << endl;
+			break;
+		case 10://MAKE COPY
+			makeCopy(object, SIZE, objectCopied);
+			cout << "COPIED MAS: " << endl;
+			printColumn(objectCopied, SIZE);
+			break;
+		case 11://JOIN
 
-	printColumn(object, SIZE);
-	cout << endl;
+			break;
+		case 12://APPEND
 
-	cout << "SUM: " << totalSum(object, SIZE) << endl << endl;
+			break;
+		case 13://PRINT UNIQUE
+			cout << endl << "UNIQUE: " << endl;
+			printUnique(object, SIZE);
+			break;
+		}
+		system("pause");
+	} while (isRunning);
 
-	cout << "RANGE COUNT: " << countInRange(object, SIZE, 50, 70) << endl << endl;
-	
-	cout << "PIKES: " << endl;
-	printPikes(object, SIZE);
-	cout << endl;
-
-	cout << "SORTED MAS: " << endl;
-	sort(object, SIZE);
-	for (int i = 0; i < SIZE; i++)
-	{
-		object[i]->printFull();
-		cout << endl;
-	}
+	return 0;
 }

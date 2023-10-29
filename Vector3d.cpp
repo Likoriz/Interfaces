@@ -24,13 +24,20 @@ void Vector3d::printFull()
 void Vector3d::copy(ICopyable* object)
 {
 	Vector3d* tmp_object=(Vector3d*)object;
-	tmp_object->len=len;
-	tmp_object->xStart=xStart;
-	tmp_object->xEnd=xEnd;
-	tmp_object->yStart=yStart;
-	tmp_object->yEnd=yEnd;
-	tmp_object->zStart=zStart;
-	tmp_object->zEnd=zEnd;
+	len = tmp_object->len;
+	//tmp_object->len=len;
+	xStart = tmp_object->xStart;
+	//tmp_object->xStart=xStart;
+	xEnd = tmp_object->xEnd;
+	//tmp_object->xEnd=xEnd;
+	yStart = tmp_object->yStart;
+	//tmp_object->yStart=yStart;
+	yEnd = tmp_object->yEnd;
+	//tmp_object->yEnd=yEnd;
+	zStart = tmp_object->zStart;
+	//tmp_object->zStart=zStart;
+	zEnd = tmp_object->zEnd;
+	//tmp_object->zEnd=zEnd;
 }
 
 bool Vector3d::isEqual(IManageable* object)

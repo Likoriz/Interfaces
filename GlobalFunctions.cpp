@@ -17,7 +17,7 @@ void sort(IManageable** objects, int size)//IValue**
 
 float min(IManageable** objects, int size)//IValue**
 {
-	int min = objects[0]->value();
+	float min = objects[0]->value();
 
 	for (int i = 1; i < size; i++)
 	{
@@ -31,7 +31,7 @@ float min(IManageable** objects, int size)//IValue**
 
 float max(IManageable** objects, int size)//IValue**
 {
-	int max = objects[0]->value();
+	float max = objects[0]->value();
 
 	for (int i = 1; i < size; i++)
 	{
@@ -123,9 +123,10 @@ void printPikes(IManageable** objects, int size)
 	cout << endl;
 }
 
-void makeCopy()
+void makeCopy(IManageable** objects, int size, IManageable** objectsCopied)
 {
-
+	for (int i = 0; i < size; i++)
+		objectsCopied[i]->copy(objects[i]);
 }
 
 void join()
@@ -138,7 +139,20 @@ void append()
 
 }
 
-void printUnique()
+void printUnique(IManageable** objects, int size)//IValue**
 {
+	for (int i = 0; i < size; i++)
+	{
+		bool isUnique = true;
+		for (int j = i + 1; j < size; j++)
+			if (objects[i]->value() == objects[j]->value())
+			{
+				isUnique = false;
+				break;
+			}
+
+		if (isUnique)
+			cout << objects[i]->value() << endl;
+	}
 
 }

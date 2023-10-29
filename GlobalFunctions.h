@@ -63,7 +63,7 @@ void printPikes(IManageable** objects, int size);
 Копирование.
 Копирует массив объектов.
 */
-void makeCopy();
+void makeCopy(IManageable** objects, int size, IManageable** objectsCopied);
 
 /*
 Объединение.
@@ -81,5 +81,5 @@ void append();
 Уникальный вывод.
 Выводит только уникальные значения объектов массива.
 */
-void printUnique();
+void printUnique(IManageable** objects, int size);
 
