@@ -145,7 +145,7 @@ void printUnique(IManageable** objects, int size)//IValue**
 	{
 		bool isUnique = true;
 		for (int j = i + 1; j < size; j++)
-			if (objects[i]->value() == objects[j]->value())
+			if (objects[i]->isEqual(objects[j]))
 			{
 				isUnique = false;
 				break;
@@ -154,5 +154,4 @@ void printUnique(IManageable** objects, int size)//IValue**
 		if (isUnique)
 			cout << objects[i]->value() << endl;
 	}
-
 }

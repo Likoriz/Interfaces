@@ -39,11 +39,15 @@ void Text::copy(ICopyable* object)
 
 bool Text::isEqual(IManageable* object)
 {
-	Text* textObject = (Text*)object;
-	if (strncmp(text, textObject->text, textObject->length) == 0)
-		return true;
+	//Text* textObject = (Text*)object;
+	//if (strncmp(text, textObject->text, textObject->length) == 0)
+	//	return true;
+	//else
+	//	return false;
+	if (length == object->value())
+		return 1;
 	else
-		return false;
+		return 0;
 }
 
 float Text::value()

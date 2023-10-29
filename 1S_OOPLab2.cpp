@@ -1,12 +1,13 @@
 ﻿#include "Text.h"
 #include "Vector2d.h"
 #include "Vector3d.h"
-#define SIZE 9
 #include "Vector2d.h"
 
 int main()
 {
 	srand(time(NULL));
+
+	int SIZE = 9;
 
 	IManageable** object = new IManageable * [SIZE];
 	for (int i = 0; i < 3; i++)
