@@ -9,46 +9,25 @@ int main()
 	srand(time(NULL));
 
 	int SIZE = 12;
+	int SIZE1 = 12;
 
 	//MASS
-	IManageable** objectText = new IManageable * [SIZE];
-	for (int i = 0; i < SIZE; i++)
-		objectText[i] = new Text();
-
-	IManageable** objectVector2d = new IManageable * [SIZE];
-	for (int i = 0; i < SIZE; i++)
-		objectVector2d[i] = new Vector2d();
-
-	IManageable** objectVector3d = new IManageable * [SIZE];
-	for (int i = 0; i < SIZE; i++)
-		objectVector3d[i] = new Vector3d();
-
-	IManageable** objectComplex = new IManageable * [SIZE];
-	for (int i = 0; i < SIZE; i++)
-		objectComplex[i] = new ComplexNumber();
+	IManageable** objectText = nullptr;
+	IManageable** objectVector2d = nullptr;
+	IManageable** objectVector3d = nullptr;
+	IManageable** objectComplex = nullptr;
 
 	//COPY MASS
-	IManageable** objectTextCopied = new IManageable * [SIZE];
-	for (int i = 0; i < SIZE; i++)
-		objectTextCopied[i] = new Text();
-
-	IManageable** objectVector2dCopied = new IManageable * [SIZE];
-	for (int i = 0; i < SIZE; i++)
-		objectVector2dCopied[i] = new Vector2d();
-
-	IManageable** objectVector3dCopied = new IManageable * [SIZE];
-	for (int i = 0; i < SIZE; i++)
-		objectVector3dCopied[i] = new Vector3d();
-
-	IManageable** objectComplexCopied = new IManageable * [SIZE];
-	for (int i = 0; i < SIZE; i++)
-		objectComplexCopied[i] = new ComplexNumber();
+	IManageable** objectTextCopied = nullptr;
+	IManageable** objectVector2dCopied = nullptr;
+	IManageable** objectVector3dCopied = nullptr;
+	IManageable** objectComplexCopied = nullptr;
 
 	int action;
 	int a;
 	bool isRunning = true;
 	float val, A, B;
-	IManageable* element = new Text();
+	IManageable* element = nullptr;
 	IManageable** objects = nullptr;
 	IManageable** objectsCopied = nullptr;
 
@@ -60,19 +39,51 @@ int main()
 
 	switch (a)
 	{
-	case 0:
+	case 0://TEXT
+		objectText = new IManageable * [SIZE];
+		for (int i = 0; i < SIZE; i++)
+			objectText[i] = new Text();
+
+		objectTextCopied = new IManageable * [SIZE];
+		for (int i = 0; i < SIZE; i++)
+			objectTextCopied[i] = new Text();
+
 		objects = objectText;
 		objectsCopied = objectTextCopied;
 		break;
-	case 1:
+	case 1://VECTOR2D
+		objectVector2d = new IManageable * [SIZE];
+		for (int i = 0; i < SIZE; i++)
+			objectVector2d[i] = new Vector2d();
+
+		objectVector2dCopied = new IManageable * [SIZE];
+		for (int i = 0; i < SIZE; i++)
+			objectVector2dCopied[i] = new Vector2d();
+
 		objects = objectVector2d;
 		objectsCopied = objectVector2dCopied;
 		break;
-	case 2:
+	case 2://VECTOR3D
+		objectVector3d = new IManageable * [SIZE];
+		for (int i = 0; i < SIZE; i++)
+			objectVector3d[i] = new Vector3d();
+
+		objectVector3dCopied = new IManageable * [SIZE];
+		for (int i = 0; i < SIZE; i++)
+			objectVector3dCopied[i] = new Vector3d();
+
 		objects = objectVector3d;
 		objectsCopied = objectVector3dCopied;
 		break;
-	case 3:
+	case 3://COMPLEX
+		objectComplex = new IManageable * [SIZE];
+		for (int i = 0; i < SIZE; i++)
+			objectComplex[i] = new ComplexNumber();
+
+		objectComplexCopied = new IManageable * [SIZE];
+		for (int i = 0; i < SIZE; i++)
+			objectComplexCopied[i] = new ComplexNumber();
+
 		objects = objectComplex;
 		objectsCopied = objectComplexCopied;
 		break;
@@ -135,11 +146,11 @@ int main()
 			cout << "COPIED MAS: " << endl;
 			printColumn(objectsCopied, SIZE);
 			break;
-		case 11://JOIN/////////////////////////////////
-			objects = join(objects, SIZE, objectsCopied, SIZE, a);
+		case 11://JOIN
+			objects = join(objects, SIZE, objectsCopied, SIZE1, a);
 			break;
 		case 12://APPEND
-			append(objects, SIZE, element);//////////////////////////////
+			objects = append(objects, SIZE, a);//////////////////////////////
 			break;
 		case 13://PRINT UNIQUE
 			cout << endl << "UNIQUE: " << endl;

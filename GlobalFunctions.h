@@ -68,13 +68,13 @@ void makeCopy(IManageable** objects, int size, IManageable** objectsCopied);
 Объединение.
 Объединяет второй массив объектов с первым.
 */
-IManageable** join(IManageable** objects, int size, IManageable** objectsCopied, int size1, int a);
+IManageable** join(IManageable** objects, int& size, IManageable** objectsCopied, int size1, int a);
 
 /*
 Добавление.
 Добавляет новый объект в массив объектов.
 */
-void append(IManageable** objects, int& size, IManageable* element);
+IManageable** append(IManageable** objects, int& size, int a);
 
 /*
 Уникальный вывод.

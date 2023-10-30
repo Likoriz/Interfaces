@@ -3,7 +3,7 @@
 #include "Vector3d.h"
 #include "ComplexNumber.h"
 
-void sort(IManageable** objects, int size)//IValue**
+void sort(IManageable** objects, int size)
 {
 	for (int i = 0; i < size; i++)
 		for (int j = 0; j < size; j++)
@@ -17,7 +17,7 @@ void sort(IManageable** objects, int size)//IValue**
 		}
 }
 
-float min(IManageable** objects, int size)//IValue**
+float min(IManageable** objects, int size)
 {
 	float min = objects[0]->value();
 
@@ -31,7 +31,7 @@ float min(IManageable** objects, int size)//IValue**
 	return min;
 }
 
-float max(IManageable** objects, int size)//IValue**
+float max(IManageable** objects, int size)
 {
 	float max = objects[0]->value();
 
@@ -45,7 +45,7 @@ float max(IManageable** objects, int size)//IValue**
 	return max;
 }
 
-int find(IManageable** objects, int size, float value)//IValue**
+int find(IManageable** objects, int size, float value)
 {
 	int index = -1;
 
@@ -59,7 +59,7 @@ int find(IManageable** objects, int size, float value)//IValue**
 	return index;
 }
 
-void printLine(IManageable** objects, int size)//IPrintable**
+void printLine(IManageable** objects, int size)
 {
 	for (int i = 0; i < size; i++)
 	{
@@ -68,7 +68,7 @@ void printLine(IManageable** objects, int size)//IPrintable**
 	}
 }
 
-void printColumn(IManageable** objects, int size)//IPrintable**
+void printColumn(IManageable** objects, int size)
 {
 	for (int i = 0; i < size; i++)
 	{
@@ -77,7 +77,7 @@ void printColumn(IManageable** objects, int size)//IPrintable**
 	}
 }
 
-float totalSum(IManageable** objects, int size)//IValue**
+float totalSum(IManageable** objects, int size)
 {
 	float sum = 0;
 
@@ -87,7 +87,7 @@ float totalSum(IManageable** objects, int size)//IValue**
 	return sum;
 }
 
-int countInRange(IManageable** objects, int size, float A, float B)//IValue**
+int countInRange(IManageable** objects, int size, float A, float B)
 {
 	int count = 0;
 
@@ -131,12 +131,50 @@ void makeCopy(IManageable** objects, int size, IManageable** objectsCopied)
 		objectsCopied[i]->copy(objects[i]);
 }
 
-IManageable** join(IManageable** objects, int size, IManageable** objectsCopied, int size1, int a)///////////////////////////////////////
+IManageable** join(IManageable** objects, int& size, IManageable** objectsCopied, int size1, int a)
 {
 	int new_size = size + size1;
 	IManageable** new_arr = new IManageable * [new_size];
-	for (int i = 0; i < new_size; i++) {
+
+	for (int i = 0; i < new_size; i++) 
 		switch (a) 
+		{
+		case 0:
+			for (int i = 0; i < new_size; i++)
+				new_arr[i] = new Text();
+			break;
+		case 1:
+			for (int i = 0; i < new_size; i++)
+				new_arr[i] = new Vector2d();
+			break;
+		case 2:
+			for (int i = 0; i < new_size; i++)
+				new_arr[i] = new Vector3d();
+			break;
+		case 3:
+			for (int i = 0; i < new_size; i++)
+				new_arr[i] = new ComplexNumber();
+			break;
+		}
+
+	for (int i = 0; i < size; i++)
+		new_arr[i]->copy(objects[i]);
+
+	for (int i = size; i < new_size; i++)
+		new_arr[i]->copy(objectsCopied[i-size]);
+
+	size = new_size;
+
+	return new_arr;
+}
+
+IManageable** append(IManageable** objects, int& size, int a)////////////////////////////////////////////////////
+{
+	int new_size = size + 1;
+	IManageable** new_arr = new IManageable * [new_size];
+
+	for (int i = 0; i < new_size; i++) {
+		switch (a)
 		{
 		case 0:
 			for (int i = 0; i < new_size; i++)
@@ -159,22 +197,12 @@ IManageable** join(IManageable** objects, int size, IManageable** objectsCopied,
 	for (int i = 0; i < size; i++)
 		new_arr[i]->copy(objects[i]);
 
-	for (int i = size; i < new_size; i++)
-		new_arr[i]->copy(objectsCopied[i-size]);
+	size = new_size;
 
 	return new_arr;
 }
 
-void append(IManageable** objects, int& size, IManageable* element)////////////////////////////////////////////////////
-{
-	size = size + 1;
-	objects = new IManageable * [size];
-	objects[size - 1] = new Text();
-	objects[size - 1]->printFull();
-	//objects[size - 1] = element;
-}
-
-void printUnique(IManageable** objects, int size)//IValue**
+void printUnique(IManageable** objects, int size)
 {
 	for (int i = 0; i < size; i++)
 	{
