@@ -43,13 +43,13 @@ void Vector3d::copy(ICopyable* object)
 bool Vector3d::isEqual(IManageable* object)
 {
 	Vector3d* tmp_object=(Vector3d*)object;
-	//if(tmp_object->xStart==xStart&&tmp_object->xEnd==xEnd&&tmp_object->yStart==yStart&&tmp_object->yEnd==yEnd&&tmp_object->zStart==zStart&&tmp_object->zEnd==zEnd)
-	//	return true;
-	//return false;
-	if (len == object->value())
-		return 1;
-	else
-		return 0;
+	if(tmp_object->xStart==xStart&&tmp_object->xEnd==xEnd&&tmp_object->yStart==yStart&&tmp_object->yEnd==yEnd&&tmp_object->zStart==zStart&&tmp_object->zEnd==zEnd)
+		return true;
+	return false;
+	//if (len == object->value())
+	//	return 1;
+	//else
+	//	return 0;
 }
 
 float Vector3d::value()

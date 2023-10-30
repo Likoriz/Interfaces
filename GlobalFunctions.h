@@ -1,5 +1,4 @@
 #pragma once
-//АРГУМЕНТЫ ДЛЯ ГЛОБАЛЬНЫХ ФУНКЦИЙ ЕЩЕ НЕ НАПИСАНЫ
 
 #include "IManageable.h"
 
@@ -69,13 +68,13 @@ void makeCopy(IManageable** objects, int size, IManageable** objectsCopied);
 Объединение.
 Объединяет второй массив объектов с первым.
 */
-void join();
+IManageable** join(IManageable** objects, int size, IManageable** objectsCopied, int size1, int a);
 
 /*
 Добавление.
 Добавляет новый объект в массив объектов.
 */
-void append();
+void append(IManageable** objects, int& size, IManageable* element);
 
 /*
 Уникальный вывод.

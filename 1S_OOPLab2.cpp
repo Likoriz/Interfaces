@@ -2,37 +2,86 @@
 #include "Vector2d.h"
 #include "Vector3d.h"
 #include "Vector2d.h"
+#include "ComplexNumber.h"
 
 int main()
 {
 	srand(time(NULL));
 
-	int SIZE = 9;
+	int SIZE = 12;
 
-	IManageable** object = new IManageable * [SIZE];
-	for (int i = 0; i < 3; i++)
-		object[i] = new Text();
-	for (int i = 3; i < 6; i++)
-		object[i] = new Vector2d();
-	for (int i = 6; i < 9; i++)
-		object[i] = new Vector3d();
+	//MASS
+	IManageable** objectText = new IManageable * [SIZE];
+	for (int i = 0; i < SIZE; i++)
+		objectText[i] = new Text();
 
-	IManageable** objectCopied = new IManageable * [SIZE];
-	for (int i = 0; i < 3; i++)
-		objectCopied[i] = new Text();
-	for (int i = 3; i < 6; i++)
-		objectCopied[i] = new Vector2d();
-	for (int i = 6; i < 9; i++)
-		objectCopied[i] = new Vector3d();
+	IManageable** objectVector2d = new IManageable * [SIZE];
+	for (int i = 0; i < SIZE; i++)
+		objectVector2d[i] = new Vector2d();
+
+	IManageable** objectVector3d = new IManageable * [SIZE];
+	for (int i = 0; i < SIZE; i++)
+		objectVector3d[i] = new Vector3d();
+
+	IManageable** objectComplex = new IManageable * [SIZE];
+	for (int i = 0; i < SIZE; i++)
+		objectComplex[i] = new ComplexNumber();
+
+	//COPY MASS
+	IManageable** objectTextCopied = new IManageable * [SIZE];
+	for (int i = 0; i < SIZE; i++)
+		objectTextCopied[i] = new Text();
+
+	IManageable** objectVector2dCopied = new IManageable * [SIZE];
+	for (int i = 0; i < SIZE; i++)
+		objectVector2dCopied[i] = new Vector2d();
+
+	IManageable** objectVector3dCopied = new IManageable * [SIZE];
+	for (int i = 0; i < SIZE; i++)
+		objectVector3dCopied[i] = new Vector3d();
+
+	IManageable** objectComplexCopied = new IManageable * [SIZE];
+	for (int i = 0; i < SIZE; i++)
+		objectComplexCopied[i] = new ComplexNumber();
 
 	int action;
+	int a;
 	bool isRunning = true;
 	float val, A, B;
+	IManageable* element = new Text();
+	IManageable** objects = nullptr;
+	IManageable** objectsCopied = nullptr;
+
+	do
+	{
+		cout << "Enter mas type (0 - text, 1 - vector2d, 2 - vector3d, 3 - complex): ";
+		cin >> a;
+	} while (a < 0 && a > 3);
+
+	switch (a)
+	{
+	case 0:
+		objects = objectText;
+		objectsCopied = objectTextCopied;
+		break;
+	case 1:
+		objects = objectVector2d;
+		objectsCopied = objectVector2dCopied;
+		break;
+	case 2:
+		objects = objectVector3d;
+		objectsCopied = objectVector3dCopied;
+		break;
+	case 3:
+		objects = objectComplex;
+		objectsCopied = objectComplexCopied;
+		break;
+	}
 
 	do
 	{
 		system("cls");
-		printColumn(object, SIZE);
+		printColumn(objects, SIZE);
 
 		do
 		{
@@ -47,54 +96,54 @@ int main()
 			isRunning = false;
 			break;
 		case 1://SORT
-			sort(object, SIZE);
+			sort(objects, SIZE);
 			break;
 		case 2://MIN
-			cout << "MIN: " << min(object, SIZE) << endl;
+			cout << "MIN: " << min(objects, SIZE) << endl;
 			break;
 		case 3://MAX
-			cout << "MAX: " << max(object, SIZE) << endl;
+			cout << "MAX: " << max(objects, SIZE) << endl;
 			break;
 		case 4://FIND INDEX
 			cout << "Enter value: ";
 			cin >> val;
-			cout << "FOUND INDEX: " << find(object, SIZE, val) << endl;
+			cout << "FOUND INDEX: " << find(objects, SIZE, val) << endl;
 			break;
 		case 5://PRINT LINE
-			printLine(object, SIZE);
+			printLine(objects, SIZE);
 			cout << endl << endl;
 			break;
 		case 6://PRINT COLUMN
-			printColumn(object, SIZE);
+			printColumn(objects, SIZE);
 			cout << endl << endl;
 			break;
 		case 7://TOTAL SUM
-			cout << "SUM: " << totalSum(object, SIZE) << endl << endl;
+			cout << "SUM: " << totalSum(objects, SIZE) << endl << endl;
 			break;
 		case 8://COUNT IN RANGE
 			cout << "Enter A (begin) and B (end): ";
 			cin >> A >> B;
-			cout << "RANGE COUNT: " << countInRange(object, SIZE, A, B) << endl << endl;
+			cout << "RANGE COUNT: " << countInRange(objects, SIZE, A, B) << endl << endl;
 			break;
 		case 9://PRINT PIKES
 			cout << "PIKES: " << endl;
-			printPikes(object, SIZE);
+			printPikes(objects, SIZE);
 			cout << endl;
 			break;
 		case 10://MAKE COPY
-			makeCopy(object, SIZE, objectCopied);
+			makeCopy(objects, SIZE, objectsCopied);
 			cout << "COPIED MAS: " << endl;
-			printColumn(objectCopied, SIZE);
+			printColumn(objectsCopied, SIZE);
 			break;
-		case 11://JOIN
-
+		case 11://JOIN/////////////////////////////////
+			objects = join(objects, SIZE, objectsCopied, SIZE, a);
 			break;
 		case 12://APPEND
-
+			append(objects, SIZE, element);//////////////////////////////
 			break;
 		case 13://PRINT UNIQUE
 			cout << endl << "UNIQUE: " << endl;
-			printUnique(object, SIZE);
+			printUnique(objects, SIZE);
 			break;
 		}
 		system("pause");

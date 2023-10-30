@@ -39,13 +39,13 @@ void Vector2d::copy(ICopyable* object)
 bool Vector2d::isEqual(IManageable* object)
 {
 	Vector2d* tmp_object=(Vector2d*)object;
-	//if(tmp_object->xStart==xStart&&tmp_object->xEnd==xEnd&&tmp_object->yStart==yStart&&tmp_object->yEnd==yEnd)
-	//	return true;
-	//return false;
-	if (len == object->value())
-		return 1;
-	else
-		return 0;
+	if(tmp_object->xStart==xStart&&tmp_object->xEnd==xEnd&&tmp_object->yStart==yStart&&tmp_object->yEnd==yEnd)
+		return true;
+	return false;
+	//if (len == object->value())
+	//	return 1;
+	//else
+	//	return 0;
 }
 
 float Vector2d::value()

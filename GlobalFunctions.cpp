@@ -1,5 +1,7 @@
-#include "GlobalFunctions.h"
-//ÀÐÃÓÌÅÍÒÛ ÄËß ÃËÎÁÀËÜÍÛÕ ÔÓÍÊÖÈÉ ÅÙÅ ÍÅ ÍÀÏÈÑÀÍÛ
+#include "Text.h"
+#include "Vector2d.h"
+#include "Vector3d.h"
+#include "ComplexNumber.h"
 
 void sort(IManageable** objects, int size)//IValue**
 {
@@ -129,14 +131,47 @@ void makeCopy(IManageable** objects, int size, IManageable** objectsCopied)
 		objectsCopied[i]->copy(objects[i]);
 }
 
-void join()
+IManageable** join(IManageable** objects, int size, IManageable** objectsCopied, int size1, int a)///////////////////////////////////////
 {
+	int new_size = size + size1;
+	IManageable** new_arr = new IManageable * [new_size];
+	for (int i = 0; i < new_size; i++) {
+		switch (a) 
+		{
+		case 0:
+			for (int i = 0; i < new_size; i++)
+				new_arr[i] = new Text();
+			break;
+		case 1:
+			for (int i = 0; i < new_size; i++)
+				new_arr[i] = new Vector2d();
+			break;
+		case 2:
+			for (int i = 0; i < new_size; i++)
+				new_arr[i] = new Vector3d();
+			break;
+		case 3:
+			for (int i = 0; i < new_size; i++)
+				new_arr[i] = new ComplexNumber();
+			break;
+		}
+	}
+	for (int i = 0; i < size; i++)
+		new_arr[i]->copy(objects[i]);
 
+	for (int i = size; i < new_size; i++)
+		new_arr[i]->copy(objectsCopied[i-size]);
+
+	return new_arr;
 }
 
-void append()
+void append(IManageable** objects, int& size, IManageable* element)////////////////////////////////////////////////////
 {
-
+	size = size + 1;
+	objects = new IManageable * [size];
+	objects[size - 1] = new Text();
+	objects[size - 1]->printFull();
+	//objects[size - 1] = element;
 }
 
 void printUnique(IManageable** objects, int size)//IValue**
