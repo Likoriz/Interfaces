@@ -5,7 +5,7 @@
 
 void ComplexNumber::printShort()
 {
-	std::cout << "Short data is:" << RealVal << "+ " << ImageVal << "i";
+	std::cout << "Short data is:" << RealVal << "+" << "(" << ImageVal << ")" << "i";
 }
 
 ComplexNumber::ComplexNumber()
@@ -18,28 +18,7 @@ ComplexNumber::ComplexNumber()
 
 void ComplexNumber::printFull()
 {
-
-	r = sqrtf((RealVal) * (RealVal)+(ImageVal) * (ImageVal));
-	if (RealVal > 0 and ImageVal > 0)
-		a = atan(ImageVal / RealVal);
-	if (RealVal > 0 and ImageVal < 0)
-		a = -atan(ImageVal / RealVal);
-	if (RealVal < 0 and ImageVal > 0)
-		a = M_PI - atan(ImageVal / RealVal);
-	if (RealVal < 0 and ImageVal < 0)
-		a = -M_PI + atan(ImageVal / RealVal);
-	if (RealVal == 0 and ImageVal > 0)
-		a = M_PI / 2;
-	if (RealVal == 0 and ImageVal < 0)
-		a = -(M_PI / 2);
-	if (RealVal > 0 and ImageVal == 0)
-		a = 0;
-	if (RealVal < 0 and ImageVal == 0)
-		a = M_PI;
-	cout << "Trigonometric data is:{" << r << "* ( cos(" << a << ") + i * sin(" << a << "))";
-
-	b = atan(ImageVal / RealVal);
-	cout << "Exponential data is:{" << r << "* e ^ (i * " << b << ")}";
+	cout << "Full data is:" << RealVal << "+" << "(" << ImageVal << ")" << "i " << "len = " << len;
 }
 
 void ComplexNumber::copy(ICopyable* object)
